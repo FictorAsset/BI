@@ -1,0 +1,70 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: url('FictorAsset 2 (1).png') no-repeat center center fixed;
+    background-size: cover;
+    color: #f3f3f3;
+    line-height: 1.6;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-container {
+    background: #0b2a21;
+    color: #f3f3f3;
+    padding: 60px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.3);
+    width: 500px;
+    height: auto;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.login-container h2 {
+    margin-bottom: 30px;
+    font-size: 2em;
+    color: #f3f3f3;
+}
+
+.login-container input {
+    width: 100%;
+    padding: 15px;
+    margin: 15px 0;
+    border: 1px solid #338b77;
+    border-radius: 8px;
+    font-size: 1em;
+    text-align: center;
+}
+
+.login-container input:focus {
+    border-color: #f3f3f3;
+    outline: none;
+}
+
+.login-container button {
+    width: 100%;
+    padding: 15px;
+    background-color: #338b77;
+    border: none;
+    border-radius: 8px;
+    color: #f3f3f3;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+}
+
+.login-container button:hover {
+    background-color: #006a52;
+}

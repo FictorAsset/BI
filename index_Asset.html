@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Login - Power BI Relatório de Liquidez</title>
+    <link rel="stylesheet" href="styles_Asset.css">
+</head>
+<body>
+    <main>
+        <div class="login-container">
+            <h2>Login</h2>
+            <input type="text" id="username" placeholder="Usuário" required>
+            <input type="password" id="password" placeholder="Senha" required>
+            <button onclick="validateLogin()">Entrar</button>
+            <p id="error-message" class="error"></p>
+        </div>
+    </main>
+
+    <script>
+        const validUsername = "ADMIN";
+        const validPassword = "AssetFic@2025";
+
+        function validateLogin() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('error-message');
+
+            if (username === validUsername && password === validPassword) {
+                // Marca sessão como logada
+                sessionStorage.setItem("isLoggedIn", "true");
+                window.location.href = 'powerbi_redirect_asset.html';
+            } else {
+                errorMessage.textContent = 'Usuário ou senha inválidos.';
+            }
+        }
+    </script>
+</body>
+</html>

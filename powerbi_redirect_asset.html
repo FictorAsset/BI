@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo Power BI - Fictor Asset</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --verde-principal: #03b387;
+      --verde-escuro: #044b28;
+      --cinza-claro: #f3f3f3;
+      --texto-principal: #e8e8e8;
+      --gradiente-fundo: radial-gradient(circle at 20% 20%, #0b2a21 0%, #041610 50%, #000 100%);
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: var(--gradiente-fundo);
+      color: var(--texto-principal);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow-x: hidden;
+    }
+
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      max-width: 1400px;
+      padding: 80px 40px;
+      text-align: center;
+      animation: fadeIn 0.8s ease-in-out;
+    }
+
+    header {
+      margin-bottom: 60px;
+    }
+
+    header h1 {
+      font-size: 3.5em;
+      color: var(--cinza-claro);
+      font-weight: 700;
+      letter-spacing: 0.6px;
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px rgba(0, 199, 149, 0.26);
+    }
+
+    header p {
+      color: #d0d0d0;
+      font-size: 1.2em;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .cards-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 35px;
+      width: 100%;
+      max-width: 1100px;
+      margin-top: 20px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 18px;
+      padding: 40px 30px;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur(12px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      background: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+    }
+
+    .card h3 {
+      color: var(--cinza-claro);
+      font-size: 1.5em;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+
+    .card p {
+      font-size: 1em;
+      color: #d2d2d2;
+      margin-bottom: 30px;
+      line-height: 1.5;
+    }
+
+    .card a {
+      text-decoration: none;
+      display: inline-block;
+      background: linear-gradient(90deg, #00c795, #007a60);
+      color: white;
+      padding: 13px 25px;
+      border-radius: 10px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+    }
+
+    .card a:hover {
+      background: linear-gradient(90deg, #00b082, #006a52);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(0, 199, 149, 0.205);
+    }
+
+    footer {
+      margin-top: 70px;
+    }
+
+    .logout-btn {
+      background: transparent;
+      border: 1.5px solid var(--verde-principal);
+      color: var(--verde-principal);
+      padding: 12px 30px;
+      border-radius: 10px;
+      font-size: 1.05em;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .logout-btn:hover {
+      background: var(--verde-principal);
+      color: var(--verde-escuro);
+      transform: scale(1.05);
+      box-shadow: 0 4px 15px rgba(0, 199, 149, 0.25);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 900px) {
+      .wrapper {
+        padding: 60px 25px;
+      }
+
+      header h1 {
+        font-size: 2.2em;
+      }
+
+      .card {
+        padding: 30px 20px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      header p {
+        font-size: 1em;
+      }
+      .logout-btn {
+        width: 100%;
+      }
+    }
+  </style>
+
+  <script>
+    window.onload = function() {
+      const isLoggedIn = sessionStorage.getItem("isLoggedIn");
+      if (isLoggedIn !== "true") {
+        window.location.href = "index_Asset.html";
+      }
+    }
+
+    function logout() {
+      sessionStorage.removeItem("isLoggedIn");
+      window.location.href = "index_Asset.html";
+    }
+  </script>
+</head>
+
+<body>
+  <div class="wrapper">
+    <header>
+      <h1>Power BI</h1>
+      <p>Acesso exclusivo aos dashboards analíticos da Fictor Asset</p>
+    </header>
+
+    <div class="cards-container">
+      <div class="card">
+        <h3>📊 Relatório de Gestão de Carteira</h3>
+        <p>Visão consolidada e detalhada da composição e performance da carteira de investimentos.</p>
+        <a href="https://app.powerbi.com/view?r=eyJrIjoiNGM2NTUyM2YtMWI2ZS00YmFlLTlkMzAtMmM0ZDUwZjY4MDgxIiwidCI6IjgwZDU5NGM1LTkxODQtNGUyZC04MTkzLTFkNDIxZWIzZTVmOCJ9" target="_blank">Acessar</a>
+      </div>
+
+      <div class="card">
+        <h3>📈 Relatório de Liquidez</h3>
+        <p>Monitoramento de fluxos, repasses e liquidez diária com indicadores dinâmicos de desempenho.</p>
+        <a href="https://app.powerbi.com/view?r=eyJrIjoiN2RkYzg4ZWEtYmI5MS00YjMzLWJjZjktOTM5NjVmZjU0MTFjIiwidCI6IjgwZDU5NGM1LTkxODQtNGUyZC04MTkzLTFkNDIxZWIzZTVmOCJ9" target="_blank">Acessar</a>
+      </div>
+    </div>
+
+    <footer>
+      <button class="logout-btn" onclick="logout()">Sair</button>
+    </footer>
+  </div>
+</body>
+</html>
